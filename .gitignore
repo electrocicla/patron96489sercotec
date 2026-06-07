@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.next/
+.open-next/
+out/
+node_modules/
+.wrangler/
+.wrangler-dry-run/
+.dev.vars
+dist/
+coverage/
+*.tsbuildinfo
+pnpm-debug.log*

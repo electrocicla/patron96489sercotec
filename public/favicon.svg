@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Evidencia Resultados">
+  <rect width="64" height="64" rx="10" fill="#17212b"/>
+  <path d="M18 18h28v28H18z" fill="#fbfcfd"/>
+  <path d="M23 26h18M23 32h18M23 38h10" stroke="#235b8c" stroke-width="4" stroke-linecap="round"/>
+</svg>
