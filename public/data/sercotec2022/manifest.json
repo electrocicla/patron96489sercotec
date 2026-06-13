@@ -1,0 +1,15 @@
+{
+  "version": "2022-q3-audit",
+  "files": [
+    "public/data/sercotec2022/originals/Info-Trimestral-PPto_24_al_30_sept-2022.xlsx",
+    "public/data/sercotec2022/analysis/sheet-summary.csv",
+    "public/data/sercotec2022/analysis/direct-program-summary.csv",
+    "public/data/sercotec2022/analysis/anomaly-matrix.csv",
+    "public/data/sercotec2022/analysis/direct-fund-records.csv",
+    "public/data/sercotec2022/analysis/excluded-non-direct-programs.csv",
+    "public/data/sercotec2022/duplicates/direct-fund-duplicates.csv",
+    "public/data/sercotec2022/duplicates/direct-fund-duplicate-detail-rows.csv",
+    "public/data/sercotec2022/duplicates/direct-fund-same-program-duplicates.csv",
+    "public/data/sercotec2022/flags/suspicious-text-issues.csv"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "source": "Info-Trimestral-PPto_24_al_30_sept-2022.xlsx",
+  "official_source_url": "https://www.sercotec.cl/wp-content/uploads/2022/10/Info-Trimestral-PPto_24_al_30_sept-2022.xlsx",
+  "year": 2022,
+  "cutoff": "30 de septiembre de 2022",
+  "sheets": 19,
+  "program_sheets": 18,
+  "total_named_records": 5529,
+  "direct_fund_records": 3801,
+  "direct_fund_amount_sum": 13475638619,
+  "operator_budget_amount_sum": 98848688265,
+  "anomalies_count": 20,
+  "critical_anomalies_count": 9,
+  "high_anomalies_count": 9,
+  "direct_duplicate_groups": 35,
+  "direct_duplicate_groups_two_programs": 35,
+  "direct_duplicate_groups_three_or_more_programs": 0,
+  "direct_duplicate_entity_type_counts": {
+    "empresa/organización": 22,
+    "persona natural": 13
+  },
+  "same_program_duplicate_groups": 1,
+  "same_program_duplicate_amount_sum": 17830632,
+  "blank_numbered_rows_total": 8450,
+  "empty_preenumerated_sheets": [
+    "Reactívate",
+    "MejoraNegocios",
+    "FormaciónL2",
+    "Redes",
+    "JUNTOS",
+    "Barrios"
+  ]
+}

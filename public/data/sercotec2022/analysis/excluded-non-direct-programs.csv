@@ -1,0 +1,11 @@
+﻿sheet,service,classification,records_with_name,amount_sum,reason
+AsesoríasVirtual,Servicios virtuales - Asesoría Virtual,service_no_amount,760,0,"Sin monto directo comparable, monto indirecto/prorrateado, servicio sin transferencia o presupuesto de operador."
+Barrios,Barrios Comerciales,indirect_allocated,0,0,"Sin monto directo comparable, monto indirecto/prorrateado, servicio sin transferencia o presupuesto de operador."
+CapacitaciónVirtual,Servicios virtuales - Asesoría Virtual,service_no_amount,760,0,"Sin monto directo comparable, monto indirecto/prorrateado, servicio sin transferencia o presupuesto de operador."
+Centros,Programa de Desarrollo Empresarial en los Territorios,operator_budget,84,98848688265,"Sin monto directo comparable, monto indirecto/prorrateado, servicio sin transferencia o presupuesto de operador."
+FormaciónL2,Formación Empresarial L2,no_direct_transfer,0,0,"Sin monto directo comparable, monto indirecto/prorrateado, servicio sin transferencia o presupuesto de operador."
+JUNTOS,Juntos,direct_fund,0,0,"Sin monto directo comparable, monto indirecto/prorrateado, servicio sin transferencia o presupuesto de operador."
+MejoraNegocios,MejoraNegocios,direct_fund,0,0,"Sin monto directo comparable, monto indirecto/prorrateado, servicio sin transferencia o presupuesto de operador."
+PromociónComercialización,Promoción y Canales de Comercialización,indirect_allocated,124,54242980,"Sin monto directo comparable, monto indirecto/prorrateado, servicio sin transferencia o presupuesto de operador."
+Reactívate,Reactívate,direct_fund_empty_or_unused,0,0,"Sin monto directo comparable, monto indirecto/prorrateado, servicio sin transferencia o presupuesto de operador."
+Redes,Redes de Oportunidades de Negocios,no_direct_transfer,0,0,"Sin monto directo comparable, monto indirecto/prorrateado, servicio sin transferencia o presupuesto de operador."

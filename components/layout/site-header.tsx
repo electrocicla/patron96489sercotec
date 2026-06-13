@@ -5,7 +5,8 @@ import { ButtonLink } from "@/components/ui/button";
 const navItems = [
   { href: "/report", label: "Reportar" },
   { href: "/stats", label: "Estadisticas" },
-  { href: "/sercotec-2025", label: "Resultados 2025" },
+  { href: "/sercotec-2022", label: "Sercotec 2022" },
+  { href: "/sercotec-2025", label: "Sercotec 2025" },
   { href: "/methodology", label: "Metodologia" },
   { href: "/privacy", label: "Privacidad" }
 ];
@@ -31,7 +32,7 @@ export function SiteHeader() {
           ))}
           <ButtonLink className="hidden sm:inline-flex" href="/sercotec-2025" tone="secondary">
             <BarChart3 aria-hidden="true" size={16} />
-            Ver resultados 2025
+            Ver auditorias
           </ButtonLink>
         </nav>
       </div>
