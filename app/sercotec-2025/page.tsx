@@ -885,9 +885,7 @@ function SimpleTable({ rows }: { rows: FundedDuplicateRow[] }) {
 
 export default function Sercotec2025Page() {
   const threeOrMoreRows = directFundedDuplicates.filter((row) => row.programCount >= 3);
-  const twoProgramRows = directFundedDuplicates.filter((row) => row.programCount === 2);
   const directFundedRows = directFundedPrograms.reduce((sum, program) => sum + program.rows, 0);
-  const totalDuplicateAffected = directFundedPrograms.reduce((sum, program) => sum + program.duplicateAffected, 0);
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
