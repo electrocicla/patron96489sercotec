@@ -1,0 +1,189 @@
+{
+  "summary": {
+    "year": 2023,
+    "uploaded_files_in_year": 16,
+    "rows": 52141,
+    "usable_named_rows": 37806,
+    "programs": 15,
+    "direct_fund_rows": 7483,
+    "known_amount_rows": 5027,
+    "known_amount_duplicate_groups": 57,
+    "known_amount_duplicate_groups_three_or_more": 0,
+    "direct_fund_duplicate_groups": 76,
+    "direct_fund_duplicate_groups_three_or_more": 0,
+    "same_program_duplicate_groups": 63,
+    "exact_duplicate_rows": 159,
+    "duplicate_name_rows": 216,
+    "empty_name_rows": 14335,
+    "missing_numero_acto_rows": 112,
+    "identity_split_no_aplica_rows": 36312,
+    "year_mismatch_rows": 826,
+    "male_first_name_flags_in_women_programs": 0,
+    "known_amount_exposure_clp_sum_across_duplicate_groups": 307500000,
+    "highest_known_amount_exposure_clp": 9500000,
+    "anomaly_rows": 21,
+    "critical_anomaly_rows": 1,
+    "high_anomaly_rows": 19
+  },
+  "original_files": [
+    {
+      "source_file": "TransparenciaActiva (1).csv",
+      "public_file": "ta-01-digitaliza-tu-almacen.csv",
+      "rows": 455,
+      "years": "2023",
+      "programs": "Digitaliza tu Almacén",
+      "sha256": "13183eeded2f7865acfa810be128a8340fe68064a889aba0390afe0df50aaf01"
+    },
+    {
+      "source_file": "TransparenciaActiva (3).csv",
+      "public_file": "ta-03-crece-fondo-de-desarrollo-de-negocios.csv",
+      "rows": 1548,
+      "years": "2023",
+      "programs": "Crece Fondo de Desarrollo de Negocios.",
+      "sha256": "249f27e5d437c3edf1324cdf2ae00da95701e416bec40c11f07890725a1754bb"
+    },
+    {
+      "source_file": "TransparenciaActiva (4).csv",
+      "public_file": "ta-04-ruta-digital.csv",
+      "rows": 467,
+      "years": "2023",
+      "programs": "Ruta Digital",
+      "sha256": "1e6c94aeaa2634c608d9238b9df58cf825ca30619015cd0e78b5a898033881f0"
+    },
+    {
+      "source_file": "TransparenciaActiva (5).csv",
+      "public_file": "ta-05-promocion-y-canales-de-comercializacion.csv",
+      "rows": 882,
+      "years": "2023",
+      "programs": "Promoción y canales de comercialización",
+      "sha256": "1260532bef4adf32afea67d7ae0329166b6d4fc8fa6f45e4628b2c0da5c18b79"
+    },
+    {
+      "source_file": "TransparenciaActiva (6).csv",
+      "public_file": "ta-06-capital-semilla-emprende.csv",
+      "rows": 1019,
+      "years": "2023",
+      "programs": "Capital Semilla Emprende",
+      "sha256": "77be78d6fd8e0d984b6a9facdfdd18c5419c3ee0b9de167c27e1c1b35e693d6b"
+    },
+    {
+      "source_file": "TransparenciaActiva (7).csv",
+      "public_file": "ta-07-capital-abeja-emprende.csv",
+      "rows": 1177,
+      "years": "2023",
+      "programs": "Capital Abeja Emprende",
+      "sha256": "d33e83588d478fd3c3db8f9d5b36f38545383922bd6c52101466a9821544c3ea"
+    },
+    {
+      "source_file": "TransparenciaActiva (8).csv",
+      "public_file": "ta-08-emergencia.csv",
+      "rows": 2138,
+      "years": "2023",
+      "programs": "Emergencia",
+      "sha256": "c51f6aeed36d064342b765b5eb6c9434cbab348d7adf73cae8fe90519de1cbe1"
+    },
+    {
+      "source_file": "TransparenciaActiva (9).csv",
+      "public_file": "ta-09-servicios-virtuales.csv",
+      "rows": 29293,
+      "years": "2023",
+      "programs": "Servicios Virtuales",
+      "sha256": "8deaff4cd9674c3e763cf6660a9edc23ca5e79cf44ab77f47415058328e829ce"
+    },
+    {
+      "source_file": "TransparenciaActiva (10).csv",
+      "public_file": "ta-10-mejora-negocios.csv",
+      "rows": 361,
+      "years": "2023",
+      "programs": "Mejora Negocios",
+      "sha256": "e1e43d7e538c996f089ee1ea5a56a507c623d420f4d6f3de85afa2fc1e4fb3a9"
+    },
+    {
+      "source_file": "TransparenciaActiva (11).csv",
+      "public_file": "ta-11-formacion-empresarial.csv",
+      "rows": 25,
+      "years": "2023",
+      "programs": "Formación Empresarial",
+      "sha256": "00fa01d2569672152a99977b3626c1ad3ff7a09d8d490b4c3ba964fc00d8ed7e"
+    },
+    {
+      "source_file": "TransparenciaActiva (12).csv",
+      "public_file": "ta-12-redes-de-oportunidades-de-negocio.csv",
+      "rows": 123,
+      "years": "2023",
+      "programs": "Redes de Oportunidades de Negocio",
+      "sha256": "d7760f6a52d2c19e1fd9115f91ae7fcf8cc781fffa0218fc91c2b70330b3814a"
+    },
+    {
+      "source_file": "TransparenciaActiva (13).csv",
+      "public_file": "ta-13-centros-de-desarrollo-de-negocios.csv",
+      "rows": 112,
+      "years": "2023",
+      "programs": "Centros de Desarrollo de Negocios",
+      "sha256": "f398b32762cbe43aacf42ceb08721a18178b9414690d4f1aeaf5370e335f7695"
+    },
+    {
+      "source_file": "TransparenciaActiva (14).csv",
+      "public_file": "ta-14-centros-de-desarrollo-de-negocios.csv",
+      "rows": 14222,
+      "years": "2023",
+      "programs": "Centros de Desarrollo de Negocios",
+      "sha256": "3b6e1f314f0865defca19997d26fc35b75acc1215f53f7fd43405e00ebec69a4"
+    },
+    {
+      "source_file": "TransparenciaActiva (15).csv",
+      "public_file": "ta-15-fortalecimiento-gremial-y-cooperativo.csv",
+      "rows": 90,
+      "years": "2023",
+      "programs": "FORTALECIMIENTO GREMIAL Y COOPERATIVO | Fortalecimiento Gremial | Fortalecimiento Gremial 2023 | Fortalecimiento Gremial SERCOTEC 2023 | Fortalecimiento Gremial Ñuble 2023 | Fortalecimiento gremial 2023 | Fortalecimiento gremial 2024",
+      "sha256": "f2baef9acde882777a1f12782dad312f21a8360510214b5f4f08e4600e3d6161"
+    },
+    {
+      "source_file": "TransparenciaActiva (16).csv",
+      "public_file": "ta-16-programa-desarrollo-de-ferias-libres.csv",
+      "rows": 148,
+      "years": "2023",
+      "programs": "Programa Desarrollo de Ferias Libres",
+      "sha256": "c7be6fe66a5fef65a63de6edba5e936e737e87cf2f847f61ab7c54a17abcbcd8"
+    },
+    {
+      "source_file": "TransparenciaActiva (17).csv",
+      "public_file": "ta-17-fortalecimiento-y-creacion-de-empresas-sociales-y-cooperativas.csv",
+      "rows": 86,
+      "years": "2023|2024",
+      "programs": "Fortalecimiento y Creación de Empresas Sociales y Cooperativas",
+      "sha256": "58676e5d629a386d14c7b2ac7b4218fac937436518229655a374c6c630e3eff7"
+    }
+  ],
+  "generated_files": [
+    "analysis/anomaly-matrix.csv",
+    "analysis/file-summary.csv",
+    "analysis/normalized-row-index.csv",
+    "analysis/program-summary.csv",
+    "duplicates/direct-fund-cross-program-duplicates.csv",
+    "duplicates/known-amount-cross-program-duplicates.csv",
+    "duplicates/known-amount-duplicate-detail-rows.csv",
+    "duplicates/known-amount-three-or-more-programs.csv",
+    "duplicates/same-program-duplicates.csv",
+    "flags/public-anomaly-flags.csv",
+    "flags/uploaded-file-duplicate-groups.csv",
+    "manifest.json",
+    "originals/original-files-index.csv",
+    "originals/ta-01-digitaliza-tu-almacen.csv",
+    "originals/ta-03-crece-fondo-de-desarrollo-de-negocios.csv",
+    "originals/ta-04-ruta-digital.csv",
+    "originals/ta-05-promocion-y-canales-de-comercializacion.csv",
+    "originals/ta-06-capital-semilla-emprende.csv",
+    "originals/ta-07-capital-abeja-emprende.csv",
+    "originals/ta-08-emergencia.csv",
+    "originals/ta-09-servicios-virtuales.csv",
+    "originals/ta-10-mejora-negocios.csv",
+    "originals/ta-11-formacion-empresarial.csv",
+    "originals/ta-12-redes-de-oportunidades-de-negocio.csv",
+    "originals/ta-13-centros-de-desarrollo-de-negocios.csv",
+    "originals/ta-14-centros-de-desarrollo-de-negocios.csv",
+    "originals/ta-15-fortalecimiento-gremial-y-cooperativo.csv",
+    "originals/ta-16-programa-desarrollo-de-ferias-libres.csv",
+    "originals/ta-17-fortalecimiento-y-creacion-de-empresas-sociales-y-cooperativas.csv"
+  ]
+}

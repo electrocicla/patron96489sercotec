@@ -1,0 +1,3 @@
+sha256,file_count,files,first_file,rows,years,programs,severity,category
+13183eeded2f7865acfa810be128a8340fe68064a889aba0390afe0df50aaf01,2,TransparenciaActiva (1).csv | TransparenciaActiva (2).csv,TransparenciaActiva (1).csv,455,2023,Digitaliza tu Almacén,alta,archivo duplicado exacto
+fd168fa1385ee9553fa1b764035f4dd2fcc4581f23815c2475b47247c55b9cae,2,TransparenciaActiva (20).csv | TransparenciaActiva (26).csv,TransparenciaActiva (20).csv,570,2024,Ruta Digital,alta,archivo duplicado exacto

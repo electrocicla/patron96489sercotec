@@ -1,0 +1,22 @@
+severity,category,program,source,metric,value,evidence
+alta,registros sin razón social,Emergencia,program-summary,empty_name_rows,1,1 filas sin razón social publicada sobre 2138 registros.
+alta,filas duplicadas exactas,Emergencia,program-summary,exact_duplicate_rows,17,17 filas excedentes duplicadas exactas dentro del programa.
+alta,razón social repetida dentro del programa,Emergencia,program-summary,duplicate_name_rows,30,30 repeticiones de razón social dentro del mismo programa.
+alta,año inconsistente con fecha,Emergencia,program-summary,year_mismatch,1042,Año 2023 con fechas de otorgamiento/acto en otro año.
+alta,filas duplicadas exactas,Mejora Negocios,program-summary,exact_duplicate_rows,32,32 filas excedentes duplicadas exactas dentro del programa.
+alta,razón social repetida dentro del programa,Mejora Negocios,program-summary,duplicate_name_rows,35,35 repeticiones de razón social dentro del mismo programa.
+alta,año inconsistente con fecha,Mejora Negocios,program-summary,year_mismatch,242,Año 2023 con fechas de otorgamiento/acto en otro año.
+alta,año inconsistente con fecha,Programa Desarrollo de Ferias Libres,program-summary,year_mismatch,1,Año 2023 con fechas de otorgamiento/acto en otro año.
+alta,filas duplicadas exactas,Fortalecimiento y Creación de Cooperativas,program-summary,exact_duplicate_rows,18,18 filas excedentes duplicadas exactas dentro del programa.
+alta,razón social repetida dentro del programa,Fortalecimiento y Creación de Cooperativas,program-summary,duplicate_name_rows,37,37 repeticiones de razón social dentro del mismo programa.
+alta,año inconsistente con fecha,Fortalecimiento y Creación de Cooperativas,program-summary,year_mismatch,5,Año 2023 con fechas de otorgamiento/acto en otro año.
+alta,filas duplicadas exactas,Servicios Virtuales,program-summary,exact_duplicate_rows,10,10 filas excedentes duplicadas exactas dentro del programa.
+alta,razón social repetida dentro del programa,Servicios Virtuales,program-summary,duplicate_name_rows,38,38 repeticiones de razón social dentro del mismo programa.
+critica,registros sin razón social,Centros de Desarrollo de Negocios,program-summary,empty_name_rows,14334,14334 filas sin razón social publicada sobre 14334 registros.
+alta,filas duplicadas exactas,Centros de Desarrollo de Negocios,program-summary,exact_duplicate_rows,71,71 filas excedentes duplicadas exactas dentro del programa.
+media,número de acto ausente,Centros de Desarrollo de Negocios,program-summary,missing_numero_acto_rows,112,112 filas no publican Numero de acto.
+alta,filas duplicadas exactas,Promoción y Canales de Comercialización,program-summary,exact_duplicate_rows,11,11 filas excedentes duplicadas exactas dentro del programa.
+alta,razón social repetida dentro del programa,Promoción y Canales de Comercialización,program-summary,duplicate_name_rows,76,76 repeticiones de razón social dentro del mismo programa.
+alta,año inconsistente con fecha,Promoción y Canales de Comercialización,program-summary,year_mismatch,276,Año 2023 con fechas de otorgamiento/acto en otro año.
+alta,año inconsistente con fecha,Redes de Oportunidades de Negocios,program-summary,year_mismatch,80,Año 2023 con fechas de otorgamiento/acto en otro año.
+alta,archivo duplicado exacto,Digitaliza tu Almacén,file-duplicate-groups,file_count,2,Archivos duplicados exactos: TransparenciaActiva (1).csv | TransparenciaActiva (2).csv

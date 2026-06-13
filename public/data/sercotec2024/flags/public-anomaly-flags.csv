@@ -1,0 +1,16 @@
+severity,category,program,source,metric,value,evidence
+alta,registros sin razón social,Emergencia,program-summary,empty_name_rows,1,1 filas sin razón social publicada sobre 1690 registros.
+alta,filas duplicadas exactas,Emergencia,program-summary,exact_duplicate_rows,1,1 filas excedentes duplicadas exactas dentro del programa.
+alta,razón social repetida dentro del programa,Emergencia,program-summary,duplicate_name_rows,3,3 repeticiones de razón social dentro del mismo programa.
+alta,razón social repetida dentro del programa,Capital Abeja Emprende,program-summary,duplicate_name_rows,98,98 repeticiones de razón social dentro del mismo programa.
+alta,registros sin razón social,Fortalecimiento y Creación de Cooperativas,program-summary,empty_name_rows,1,1 filas sin razón social publicada sobre 38 registros.
+alta,razón social repetida dentro del programa,Fortalecimiento y Creación de Cooperativas,program-summary,duplicate_name_rows,1,1 repeticiones de razón social dentro del mismo programa.
+alta,año inconsistente con fecha,Fortalecimiento y Creación de Cooperativas,program-summary,year_mismatch,5,Año 2024 con fechas de otorgamiento/acto en otro año.
+alta,filas duplicadas exactas,Servicios Virtuales,program-summary,exact_duplicate_rows,21360,21360 filas excedentes duplicadas exactas dentro del programa.
+alta,razón social repetida dentro del programa,Servicios Virtuales,program-summary,duplicate_name_rows,21360,21360 repeticiones de razón social dentro del mismo programa.
+critica,registros sin razón social,Centros de Desarrollo de Negocios,program-summary,empty_name_rows,9400,9400 filas sin razón social publicada sobre 9400 registros.
+alta,filas duplicadas exactas,Centros de Desarrollo de Negocios,program-summary,exact_duplicate_rows,93,93 filas excedentes duplicadas exactas dentro del programa.
+media,número de acto ausente,Centros de Desarrollo de Negocios,program-summary,missing_numero_acto_rows,117,117 filas no publican Numero de acto.
+alta,registros sin razón social,Promoción y Canales de Comercialización,program-summary,empty_name_rows,1,1 filas sin razón social publicada sobre 380 registros.
+alta,razón social repetida dentro del programa,Promoción y Canales de Comercialización,program-summary,duplicate_name_rows,4,4 repeticiones de razón social dentro del mismo programa.
+alta,archivo duplicado exacto,Ruta Digital,file-duplicate-groups,file_count,2,Archivos duplicados exactos: TransparenciaActiva (20).csv | TransparenciaActiva (26).csv

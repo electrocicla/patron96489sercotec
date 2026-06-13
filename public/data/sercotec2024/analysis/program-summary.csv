@@ -1,0 +1,14 @@
+year,program,raw_programs,source_files,rows,usable_named_rows,unique_names,exact_duplicate_rows,duplicate_name_rows,empty_name_rows,missing_numero_acto_rows,identity_split_no_aplica_rows,year_mismatch_fecha_otorgamiento_rows,year_mismatch_fecha_acto_rows,male_first_name_flags,is_direct_fund,known_amount,amount_max_clp,amount_max_label,funding_type
+2024,Emergencia,Emergencia,TransparenciaActiva (24).csv,1690,1689,1686,1,3,1,0,1690,0,0,608,True,False,,Sin monto parametrizado,subsidio/emergencia con monto no parametrizado
+2024,Crece,Crece,TransparenciaActiva (19).csv,1309,1309,1309,0,0,0,0,1309,0,0,105,True,True,5000000,$5.000.000,subsidio directo
+2024,Capital Abeja Emprende,Abeja Emprende,TransparenciaActiva (23).csv,1171,1171,1073,0,98,0,0,1171,0,0,0,True,True,3500000,$3.500.000,subsidio directo
+2024,Capital Semilla Emprende,Capital Semilla,TransparenciaActiva (22).csv,1025,1025,1025,0,0,0,0,1025,0,0,307,True,True,3500000,$3.500.000,subsidio directo
+2024,Ruta Digital Kit Digital,Ruta Digital,TransparenciaActiva (20).csv,570,570,570,0,0,0,0,570,0,0,49,True,True,1200000,$1.200.000,subsidio directo
+2024,Digitaliza tu Almacén,Digitaliza tu Almacén,TransparenciaActiva (18).csv,406,406,406,0,0,0,0,406,0,0,47,True,True,3000000,$3.000.000,subsidio directo
+2024,Programa Desarrollo de Ferias Libres,Desarrollo de Ferias Libres,TransparenciaActiva (31).csv,127,127,127,0,0,0,0,0,0,0,0,True,False,,Sin monto parametrizado,fondo directo con monto variable/no parametrizado
+2024,Fortalecimiento Gremial,Fortalecimiento Gremial,TransparenciaActiva (30).csv,85,85,85,0,0,0,0,0,0,0,0,True,False,,Sin monto parametrizado,fondo gremial con monto variable/no parametrizado
+2024,Fortalecimiento y Creación de Cooperativas,Fortalecimiento y Creación de Empresas Sociales y Cooperativas | Fortalecimiento y Creación de Empresas sociales y cooperativas,TransparenciaActiva (17).csv | TransparenciaActiva (32).csv,38,37,36,0,1,1,0,0,0,5,4,True,False,,Sin monto parametrizado,fondo cooperativo con monto variable/no parametrizado
+2024,Servicios Virtuales,Servicios Virtuales,TransparenciaActiva (25).csv,45217,45217,23857,21360,21360,0,0,45217,0,0,9226,False,False,,Sin monto parametrizado,servicio virtual sin monto directo
+2024,Centros de Desarrollo de Negocios,Centros de Desarrollo de Negocios,TransparenciaActiva (28).csv | TransparenciaActiva (29).csv,9400,0,0,93,0,9400,117,0,0,0,0,False,False,,Sin monto parametrizado,operación/servicio de centros sin beneficiario monetario directo
+2024,Promoción y Canales de Comercialización,Promoción y Canales de Comercialización,TransparenciaActiva (21).csv,380,379,375,0,4,1,0,380,0,0,11,False,False,,Sin monto parametrizado,cofinanciamiento/servicio sin monto individual directo
+2024,Redes de Oportunidades de Negocios,Redes de Oportunidades de Negocios,TransparenciaActiva (27).csv,338,338,338,0,0,0,0,338,0,0,31,False,False,,Sin monto parametrizado,servicio/redes sin monto directo

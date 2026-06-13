@@ -6,6 +6,8 @@ const navItems = [
   { href: "/report", label: "Reportar" },
   { href: "/stats", label: "Estadisticas" },
   { href: "/sercotec-2022", label: "Sercotec 2022" },
+  { href: "/sercotec-2023", label: "Sercotec 2023" },
+  { href: "/sercotec-2024", label: "Sercotec 2024" },
   { href: "/sercotec-2025", label: "Sercotec 2025" },
   { href: "/methodology", label: "Metodologia" },
   { href: "/privacy", label: "Privacidad" }

@@ -1,0 +1,17 @@
+file_index,source_file,sha256,rows,encoding,years,programs,program_count,is_exact_file_duplicate_in_upload_batch
+1,TransparenciaActiva (1).csv,13183eeded2f7865acfa810be128a8340fe68064a889aba0390afe0df50aaf01,455,latin-1,2023,Digitaliza tu Almacén,1,True
+3,TransparenciaActiva (3).csv,249f27e5d437c3edf1324cdf2ae00da95701e416bec40c11f07890725a1754bb,1548,latin-1,2023,Crece Fondo de Desarrollo de Negocios.,1,False
+4,TransparenciaActiva (4).csv,1e6c94aeaa2634c608d9238b9df58cf825ca30619015cd0e78b5a898033881f0,467,latin-1,2023,Ruta Digital,1,False
+5,TransparenciaActiva (5).csv,1260532bef4adf32afea67d7ae0329166b6d4fc8fa6f45e4628b2c0da5c18b79,882,latin-1,2023,Promoción y canales de comercialización,1,False
+6,TransparenciaActiva (6).csv,77be78d6fd8e0d984b6a9facdfdd18c5419c3ee0b9de167c27e1c1b35e693d6b,1019,latin-1,2023,Capital Semilla Emprende,1,False
+7,TransparenciaActiva (7).csv,d33e83588d478fd3c3db8f9d5b36f38545383922bd6c52101466a9821544c3ea,1177,latin-1,2023,Capital Abeja Emprende,1,False
+8,TransparenciaActiva (8).csv,c51f6aeed36d064342b765b5eb6c9434cbab348d7adf73cae8fe90519de1cbe1,2138,latin-1,2023,Emergencia,1,False
+9,TransparenciaActiva (9).csv,8deaff4cd9674c3e763cf6660a9edc23ca5e79cf44ab77f47415058328e829ce,29293,latin-1,2023,Servicios Virtuales,1,False
+10,TransparenciaActiva (10).csv,e1e43d7e538c996f089ee1ea5a56a507c623d420f4d6f3de85afa2fc1e4fb3a9,361,latin-1,2023,Mejora Negocios,1,False
+11,TransparenciaActiva (11).csv,00fa01d2569672152a99977b3626c1ad3ff7a09d8d490b4c3ba964fc00d8ed7e,25,latin-1,2023,Formación Empresarial,1,False
+12,TransparenciaActiva (12).csv,d7760f6a52d2c19e1fd9115f91ae7fcf8cc781fffa0218fc91c2b70330b3814a,123,latin-1,2023,Redes de Oportunidades de Negocio,1,False
+13,TransparenciaActiva (13).csv,f398b32762cbe43aacf42ceb08721a18178b9414690d4f1aeaf5370e335f7695,112,latin-1,2023,Centros de Desarrollo de Negocios,1,False
+14,TransparenciaActiva (14).csv,3b6e1f314f0865defca19997d26fc35b75acc1215f53f7fd43405e00ebec69a4,14222,latin-1,2023,Centros de Desarrollo de Negocios,1,False
+15,TransparenciaActiva (15).csv,f2baef9acde882777a1f12782dad312f21a8360510214b5f4f08e4600e3d6161,90,utf-8-sig,2023,FORTALECIMIENTO GREMIAL Y COOPERATIVO | Fortalecimiento Gremial | Fortalecimiento Gremial 2023 | Fortalecimiento Gremial SERCOTEC 2023 | Fortalecimiento Gremial Ñuble 2023 | Fortalecimiento gremial 2023 | Fortalecimiento gremial 2024,7,False
+16,TransparenciaActiva (16).csv,c7be6fe66a5fef65a63de6edba5e936e737e87cf2f847f61ab7c54a17abcbcd8,148,utf-8-sig,2023,Programa Desarrollo de Ferias Libres,1,False
+17,TransparenciaActiva (17).csv,58676e5d629a386d14c7b2ac7b4218fac937436518229655a374c6c630e3eff7,86,utf-8-sig,2023|2024,Fortalecimiento y Creación de Empresas Sociales y Cooperativas,1,False
