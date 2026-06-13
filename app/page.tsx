@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart3, FileCheck2, LockKeyhole, ShieldCheck } from "lucide-react";
+import { ArrowRight, BarChart3, FileCheck2, Landmark, LockKeyhole, ShieldCheck } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Card, CardBody } from "@/components/ui/card";
 
@@ -43,6 +43,10 @@ export default function HomePage() {
                 <BarChart3 aria-hidden="true" size={18} />
                 Ver estadisticas
               </ButtonLink>
+              <ButtonLink href="/resources" tone="quiet">
+                <Landmark aria-hidden="true" size={18} />
+                Recursos oficiales
+              </ButtonLink>
             </div>
           </div>
 
@@ -83,6 +87,18 @@ export default function HomePage() {
               </Card>
             );
           })}
+        </div>
+        <div className="mt-8 flex flex-col justify-between gap-4 border-t border-civic-line pt-8 sm:flex-row sm:items-center">
+          <div>
+            <h2 className="text-lg font-bold text-civic-ink">Consulta tambien las fuentes institucionales</h2>
+            <p className="mt-1 text-sm leading-6 text-civic-muted">
+              Revisa programas, postulaciones, oficinas, preguntas frecuentes y mecanismos de transparencia en Sercotec.
+            </p>
+          </div>
+          <ButtonLink className="shrink-0" href="/resources" tone="secondary">
+            Ver recursos
+            <ArrowRight aria-hidden="true" size={16} />
+          </ButtonLink>
         </div>
       </section>
     </>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { BarChart3, FileSearch, RefreshCw } from "lucide-react";
+import { BarChart3, FileSearch, RefreshCw, Repeat2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import type { ApiResult } from "@/types/api";
@@ -13,6 +13,11 @@ interface DashboardState {
   stats: PublicStats | null;
   reports: PublicReportRow[];
   errorMessage: string;
+}
+
+interface RepeatedScore {
+  score: string;
+  count: number;
 }
 
 const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
@@ -82,6 +87,68 @@ function CountList({ title, rows }: { title: string; rows: CountByLabel[] }) {
             ))}
           </ul>
         )}
+      </CardBody>
+    </Card>
+  );
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function repeatedScoresFrom(stats: PublicStats): RepeatedScore[] {
+  const source: unknown = stats;
+  if (!isRecord(source)) {
+    return [];
+  }
+
+  const nestedPatterns = isRecord(source.patterns) ? source.patterns : null;
+  const repeatedScores = Array.isArray(source.repeatedScores)
+    ? source.repeatedScores
+    : nestedPatterns && Array.isArray(nestedPatterns.repeatedScores)
+      ? nestedPatterns.repeatedScores
+      : [];
+
+  return repeatedScores.flatMap((entry) => {
+    if (!isRecord(entry)) return [];
+    const rawScore = entry.score ?? entry.label ?? entry.value;
+    const rawCount = entry.count ?? entry.total;
+    if ((typeof rawScore !== "string" && typeof rawScore !== "number") || typeof rawCount !== "number") {
+      return [];
+    }
+    return [{ score: String(rawScore), count: rawCount }];
+  });
+}
+
+function RepeatedScores({ rows }: { rows: RepeatedScore[] }) {
+  if (rows.length === 0) return null;
+  const max = Math.max(...rows.map((row) => row.count), 1);
+
+  return (
+    <Card>
+      <CardHeader>
+        <div className="flex items-center gap-2">
+          <Repeat2 aria-hidden="true" className="text-civic-blue" size={20} />
+          <div>
+            <h2 className="text-lg font-bold text-civic-ink">Puntajes repetidos</h2>
+            <p className="mt-1 text-sm text-civic-muted">Frecuencias observadas en reportes recibidos, con desglose de moderacion en la API.</p>
+          </div>
+        </div>
+      </CardHeader>
+      <CardBody>
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {rows.map((row) => (
+            <li className="rounded-md border border-civic-line p-4" key={row.score}>
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="font-semibold text-civic-ink">{row.score}</span>
+                <span className="text-sm text-civic-muted">{row.count.toLocaleString("es-CL")}</span>
+              </div>
+              <div className="mt-3 h-2 rounded-full bg-civic-panel">
+                <div className="h-2 rounded-full bg-civic-teal" style={{ width: `${Math.max(8, (row.count / max) * 100)}%` }} />
+              </div>
+            </li>
+          ))}
+        </ul>
       </CardBody>
     </Card>
   );
@@ -167,6 +234,7 @@ export function StatsDashboard() {
 
   const stats = state.stats ?? emptyStats;
   const reports = useMemo(() => state.reports, [state.reports]);
+  const repeatedScores = useMemo(() => repeatedScoresFrom(stats), [stats]);
 
   return (
     <div className="space-y-8">
@@ -198,11 +266,34 @@ export function StatsDashboard() {
         <MetricCard label="Pendientes" value={stats.pendingReports} />
       </dl>
 
+      <Card>
+        <CardBody className="grid gap-4 sm:grid-cols-2 sm:items-center">
+          <div>
+            <p className="text-sm font-semibold text-civic-ink">Referencia informada del proceso</p>
+            <p className="mt-1 text-xs leading-5 text-civic-muted">
+              Estas cifras son contexto de referencia y no corresponden al total de reportes recibidos por esta plataforma.
+            </p>
+          </div>
+          <dl className="grid grid-cols-2 gap-3">
+            <div className="rounded-md border border-civic-line bg-civic-panel p-3">
+              <dt className="text-xs text-civic-muted">Valparaiso</dt>
+              <dd className="mt-1 text-lg font-bold text-civic-ink">2.175 postulaciones</dd>
+            </div>
+            <div className="rounded-md border border-civic-line bg-civic-panel p-3">
+              <dt className="text-xs text-civic-muted">Puntaje de corte</dt>
+              <dd className="mt-1 text-lg font-bold text-civic-ink">98,51</dd>
+            </div>
+          </dl>
+        </CardBody>
+      </Card>
+
       <div className="grid gap-4 lg:grid-cols-3">
         <CountList rows={stats.byProgram} title="Por programa" />
         <CountList rows={stats.byRegion} title="Por region" />
         <CountList rows={stats.byStatus} title="Por estado" />
       </div>
+
+      <RepeatedScores rows={repeatedScores} />
 
       <Card>
         <CardBody>

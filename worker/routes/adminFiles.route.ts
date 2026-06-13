@@ -18,7 +18,9 @@ export const adminFilesRoute = new Hono<{ Bindings: EnvBindings }>().get(
         "Content-Type": file.mimeType,
         "Content-Length": String(file.sizeBytes),
         "Content-Disposition": contentDispositionFor(file.fileName),
-        "Cache-Control": "private, no-store"
+        "Cache-Control": "private, no-store",
+        "Content-Security-Policy": "sandbox",
+        "X-Content-Type-Options": "nosniff"
       });
     } catch (error) {
       return c.json(fail(error), statusForError(error));

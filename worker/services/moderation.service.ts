@@ -1,6 +1,5 @@
 import type { AdminReportRow } from "@/types/reports";
-import type { ReportFileRecord } from "@/worker/domain/reportFile.entity";
-import type { ReportRecord } from "@/worker/domain/report.entity";
+import type { AdminEvidenceFile, AdminReportDetail } from "@/types/reports";
 import type { FileRepository } from "@/worker/repositories/file.repository";
 import type { ModerationRepository } from "@/worker/repositories/moderation.repository";
 import type { ReportRepository } from "@/worker/repositories/report.repository";
@@ -11,15 +10,6 @@ import type {
 import { nowIso } from "@/worker/lib/dates";
 import { notFound } from "@/worker/lib/errors";
 import { createId } from "@/worker/lib/ids";
-
-export interface AdminReportFile extends ReportFileRecord {
-  duplicateCount: number;
-}
-
-export interface AdminReportDetail {
-  report: ReportRecord;
-  files: AdminReportFile[];
-}
 
 export class ModerationService {
   constructor(
@@ -40,8 +30,16 @@ export class ModerationService {
 
     const files = await this.fileRepository.listByReportId(reportId);
     const filesWithDuplicates = await Promise.all(
-      files.map(async (file) => ({
-        ...file,
+      files.map<Promise<AdminEvidenceFile>>(async (file) => ({
+        id: file.id,
+        reportId: file.reportId,
+        createdAt: file.createdAt,
+        fileType: file.fileType,
+        originalName: file.originalName,
+        mimeType: file.mimeType,
+        sizeBytes: file.sizeBytes,
+        sha256: file.sha256,
+        moderationStatus: file.moderationStatus,
         duplicateCount: await this.fileRepository.countBySha256(file.sha256)
       }))
     );

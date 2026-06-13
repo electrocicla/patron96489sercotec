@@ -6,6 +6,7 @@ import type { TurnstileClient } from "@/worker/infrastructure/turnstile.client";
 import { detectPatternFlags } from "@/worker/lib/patternDetection";
 import { nowIso } from "@/worker/lib/dates";
 import { badRequest } from "@/worker/lib/errors";
+import { AppError } from "@/worker/lib/errors";
 import { sha256HexFromString } from "@/worker/lib/hash";
 import { createId } from "@/worker/lib/ids";
 import { validateReportFormData } from "@/worker/validators/reportForm.validator";
@@ -14,6 +15,9 @@ export interface RequestPrivacyMetadata {
   ip: string | null;
   userAgent: string | null;
 }
+
+const RATE_LIMIT_MAX_REPORTS = 5;
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 
 export class ReportSubmissionService {
   constructor(
@@ -36,6 +40,20 @@ export class ReportSubmissionService {
 
     if (!turnstileOk) {
       throw badRequest("No fue posible validar Turnstile.");
+    }
+
+    const ipHash = await this.optionalHash(requestMetadata.ip);
+    if (ipHash) {
+      const sinceIso = new Date(Date.now() - RATE_LIMIT_WINDOW_MS).toISOString();
+      const recentReports = await this.reportRepository.countRecentByIpHash(ipHash, sinceIso);
+
+      if (recentReports >= RATE_LIMIT_MAX_REPORTS) {
+        throw new AppError(
+          429,
+          "rate_limited",
+          "Se alcanzo el limite temporal de reportes. Intenta nuevamente mas tarde."
+        );
+      }
     }
 
     const reportId = createId("rep");
@@ -64,26 +82,33 @@ export class ReportSubmissionService {
       contactPhone: input.contactPhone,
       consent: input.consent,
       ...patternFlags,
-      ipHash: await this.optionalHash(requestMetadata.ip),
+      ipHash,
       userAgentHash: await this.optionalHash(requestMetadata.userAgent)
     };
 
+    const uploadedKeys: string[] = [];
     await this.reportRepository.create(report);
 
-    for (const file of input.files) {
-      const fileId = createId("file");
-      const stored = await this.storage.put(reportId, fileId, file);
-      await this.fileRepository.create({
-        id: fileId,
-        reportId,
-        createdAt: timestamp,
-        fileType: file.fileType,
-        originalName: file.file.name,
-        r2Key: stored.key,
-        mimeType: file.file.type,
-        sizeBytes: file.file.size,
-        sha256: stored.sha256
-      });
+    try {
+      for (const file of input.files) {
+        const fileId = createId("file");
+        const stored = await this.storage.put(reportId, fileId, file);
+        uploadedKeys.push(stored.key);
+        await this.fileRepository.create({
+          id: fileId,
+          reportId,
+          createdAt: timestamp,
+          fileType: file.fileType,
+          originalName: file.file.name,
+          r2Key: stored.key,
+          mimeType: file.file.type,
+          sizeBytes: file.file.size,
+          sha256: stored.sha256
+        });
+      }
+    } catch (error) {
+      await this.rollbackFailedSubmission(reportId, uploadedKeys);
+      throw error;
     }
 
     return {
@@ -98,5 +123,11 @@ export class ReportSubmissionService {
     }
 
     return sha256HexFromString(`${this.hashSecret}:${value}`);
+  }
+
+  private async rollbackFailedSubmission(reportId: string, uploadedKeys: string[]) {
+    await Promise.allSettled(uploadedKeys.map((key) => this.storage.delete(key)));
+    await Promise.allSettled([this.fileRepository.deleteByReportId(reportId)]);
+    await Promise.allSettled([this.reportRepository.delete(reportId)]);
   }
 }

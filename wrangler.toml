@@ -1,11 +1,11 @@
 name = "evidenciaresultados-api"
 main = "worker/index.ts"
-compatibility_date = "2026-06-07"
+compatibility_date = "2026-06-12"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "evidencia_resultados"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "c5a78a00-7c4e-4fb6-af71-5306aa625ca0"
 
 [[r2_buckets]]
 binding = "EVIDENCE_BUCKET"

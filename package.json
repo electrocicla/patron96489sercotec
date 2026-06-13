@@ -5,13 +5,16 @@
   "description": "Plataforma independiente para recopilar evidencia anonimizable de patrones repetidos en resultados Sercotec.",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/fix-next-static-export.mjs",
+    "assets:generate": "node scripts/generate-favicon.mjs",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "worker:dev": "wrangler dev",
     "db:migrate:local": "wrangler d1 migrations apply evidencia_resultados --local",
     "db:migrate:remote": "wrangler d1 migrations apply evidencia_resultados --remote",
-    "deploy": "wrangler deploy"
+    "deploy": "pnpm deploy:worker",
+    "deploy:worker": "wrangler deploy",
+    "deploy:pages": "wrangler pages deploy out --project-name sercotecpatron96489 --branch main"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -34,6 +37,7 @@
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.1",
     "eslint-config-next": "^16.0.7",
+    "sharp": "0.34.5",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3",
     "wrangler": "^4.54.0"

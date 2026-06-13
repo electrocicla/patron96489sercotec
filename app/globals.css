@@ -27,3 +27,8 @@ select,
 textarea {
   font: inherit;
 }
+
+.turnstile-shell > div,
+.turnstile-shell iframe {
+  max-width: 100% !important;
+}

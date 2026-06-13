@@ -40,6 +40,8 @@ export const statusForError = (error: unknown): ContentfulStatusCode => {
       return 401;
     case 404:
       return 404;
+    case 429:
+      return 429;
     case 500:
       return 500;
     default:

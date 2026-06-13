@@ -20,6 +20,13 @@ El proyecto debe evitar lenguaje difamatorio o acusatorio. La plataforma trabaja
 
 Cloudflare recomienda Workers/OpenNext cuando una aplicacion Next.js necesita SSR, rutas dinamicas de servidor o funcionalidades runtime de Next en el edge. Este MVP usa Next static export en Cloudflare Pages y un Hono Worker separado porque las paginas son estaticas y consumen una API externa.
 
+Produccion:
+
+- Frontend canonico: `https://sercotecpatron96489.pages.dev`
+- Worker API: `https://evidenciaresultados-api.electrocicla.workers.dev`
+
+La configuracion del Worker vive en `wrangler.toml`; la configuracion de Pages vive en `wrangler.pages.toml`.
+
 ## Arquitectura
 
 La separacion prevista es:
@@ -128,6 +135,8 @@ La API debe concentrar:
 - Escritura y lectura de D1.
 - Emision de URLs firmadas o flujos controlados para R2 si aplica.
 - Politicas de rate limit, autorizacion admin y auditoria.
+- Deteccion dinamica de puntajes repetidos desde dos reportes, sin limitarse al valor `96.489`.
+- Generacion de un borrador formal basado en agregados actuales, sin afirmar irregularidades no verificadas.
 
 Comandos relevantes:
 
@@ -209,6 +218,10 @@ El area admin debe existir solo para personas autorizadas y cubrir como minimo:
 - Visualizacion controlada de adjuntos mediante `/api/admin/files/:fileId`.
 - Exportacion operativa con minimizacion de datos mediante `/api/admin/export.csv`.
 - Registro de acciones administrativas relevantes.
+- Analisis de puntajes, estados y senales repetidas.
+- Generacion, copia y descarga del borrador para OIRS o Transparencia.
+
+El token admin se guarda unicamente en `sessionStorage` del navegador. Para desarrollo local se encuentra en `.dev.vars`, archivo ignorado por Git. En produccion se configura con `pnpm wrangler secret put ADMIN_TOKEN`.
 
 El acceso admin no debe depender de seguridad por ocultamiento de rutas. Debe existir autenticacion o token server-side, idealmente con control de sesiones y rotacion de credenciales.
 
@@ -289,4 +302,5 @@ pnpm wrangler d1 migrations apply evidencia_resultados --remote
 
 pnpm worker:dev
 pnpm deploy
+pnpm deploy:pages
 ```

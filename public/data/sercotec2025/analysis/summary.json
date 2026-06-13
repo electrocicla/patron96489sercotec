@@ -1,0 +1,504 @@
+{
+  "generated_at": "2026-06-13T01:56:25",
+  "analysis_date": "2026-06-12",
+  "csv_files_analyzed": 11,
+  "total_records": 5108,
+  "unique_normalized_beneficiaries": 4842,
+  "records_in_cross_program_repetition": 282,
+  "cross_program_repeated_beneficiaries": 132,
+  "cross_program_repeated_beneficiaries_3_or_more_files": 10,
+  "total_exact_duplicate_records_involved": 72,
+  "total_duplicate_name_records_involved": 248,
+  "total_missing_act_number_records": 933,
+  "total_year_mismatch_records": 5,
+  "programs": [
+    {
+      "slug": "digitaliza-tu-almacen-2025",
+      "original_file_name": "Digitaliza tu almacén 2025.csv",
+      "expected_program_from_file": "Digitaliza Tu Almacén",
+      "portal_section": "Desarrollo Empresarial / Digitaliza tu Almacén",
+      "internal_program_values": [
+        "Digitaliza Tu Almacén"
+      ],
+      "risk_level": "Medio",
+      "records": 410,
+      "unique_beneficiary_names": 408,
+      "exact_duplicate_records_involved": 2,
+      "duplicate_name_records_involved": 4,
+      "missing_act_number_records": 0,
+      "unique_act_numbers": 16,
+      "year_mismatch_records": 0,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": false,
+      "capital_semilla_file_with_pioneras_program": false,
+      "nominal_male_first_name_records": 57,
+      "organization_like_records": 117,
+      "no_aplica_name_field_cells": 1230,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "mayo": 101,
+        "junio": 243,
+        "julio": 66
+      },
+      "denomination_variants": [
+        "Comité de evaluación regional"
+      ],
+      "notes": "Fondo para digitalización de almacenes y negocios de barrio.",
+      "anomaly_notes": [
+        "2 registros integran duplicados exactos.",
+        "4 registros comparten Razón social normalizada dentro del mismo archivo."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/digitaliza-tu-almacen-2025.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/digitaliza-tu-almacen-2025-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/digitaliza-tu-almacen-2025-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/digitaliza-tu-almacen-2025-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/digitaliza-tu-almacen-2025-year-mismatch.csv"
+    },
+    {
+      "slug": "crece-fondo-desarrollo-negocios-2025",
+      "original_file_name": "Crece; Fondo de desarrollo de negocios.csv",
+      "expected_program_from_file": "Crece",
+      "portal_section": "Desarrollo Empresarial / Crece",
+      "internal_program_values": [
+        "Crece"
+      ],
+      "risk_level": "Medio",
+      "records": 1006,
+      "unique_beneficiary_names": 1006,
+      "exact_duplicate_records_involved": 0,
+      "duplicate_name_records_involved": 0,
+      "missing_act_number_records": 0,
+      "unique_act_numbers": 19,
+      "year_mismatch_records": 0,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": false,
+      "capital_semilla_file_with_pioneras_program": false,
+      "nominal_male_first_name_records": 97,
+      "organization_like_records": 721,
+      "no_aplica_name_field_cells": 3018,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "julio": 193,
+        "agosto": 604,
+        "septiembre": 174,
+        "octubre": 35
+      },
+      "denomination_variants": [
+        "Comité de evaluación regional"
+      ],
+      "notes": "Fondo de desarrollo de negocios para empresas formalizadas.",
+      "anomaly_notes": [
+        "Sin duplicados exactos ni campos de acto vacíos; mantiene falla estructural por ausencia de columnas críticas."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/crece-fondo-desarrollo-negocios-2025.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/crece-fondo-desarrollo-negocios-2025-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/crece-fondo-desarrollo-negocios-2025-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/crece-fondo-desarrollo-negocios-2025-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/crece-fondo-desarrollo-negocios-2025-year-mismatch.csv"
+    },
+    {
+      "slug": "ruta-digital-2025",
+      "original_file_name": "Ruta Digital 2025.csv",
+      "expected_program_from_file": "Formación Empresarial Ruta Digital",
+      "portal_section": "Desarrollo Empresarial / Ruta Digital",
+      "internal_program_values": [
+        "Formación Empresarial Ruta Digital"
+      ],
+      "risk_level": "Alto",
+      "records": 690,
+      "unique_beneficiary_names": 615,
+      "exact_duplicate_records_involved": 0,
+      "duplicate_name_records_involved": 150,
+      "missing_act_number_records": 0,
+      "unique_act_numbers": 18,
+      "year_mismatch_records": 0,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": false,
+      "capital_semilla_file_with_pioneras_program": false,
+      "nominal_male_first_name_records": 54,
+      "organization_like_records": 513,
+      "no_aplica_name_field_cells": 2070,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "agosto": 392,
+        "septiembre": 221,
+        "octubre": 27,
+        "noviembre": 50
+      },
+      "denomination_variants": [
+        "Comité de evaluación regional"
+      ],
+      "notes": "Programa con 75 repeticiones nominales dentro del mismo archivo.",
+      "anomaly_notes": [
+        "150 registros comparten Razón social normalizada dentro del mismo archivo."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/ruta-digital-2025.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/ruta-digital-2025-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/ruta-digital-2025-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/ruta-digital-2025-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/ruta-digital-2025-year-mismatch.csv"
+    },
+    {
+      "slug": "promocion-canales-comercializacion-2025",
+      "original_file_name": "Promoción y canales de comercialización.csv",
+      "expected_program_from_file": "Promoción y Canales de Comercialización",
+      "portal_section": "Desarrollo Empresarial / Promoción y canales de comercialización",
+      "internal_program_values": [
+        "Promoción y Canales de Comercialización"
+      ],
+      "risk_level": "Medio",
+      "records": 626,
+      "unique_beneficiary_names": 614,
+      "exact_duplicate_records_involved": 0,
+      "duplicate_name_records_involved": 24,
+      "missing_act_number_records": 0,
+      "unique_act_numbers": 19,
+      "year_mismatch_records": 0,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": false,
+      "capital_semilla_file_with_pioneras_program": false,
+      "nominal_male_first_name_records": 36,
+      "organization_like_records": 433,
+      "no_aplica_name_field_cells": 1878,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "junio": 15,
+        "julio": 235,
+        "marzo": 20,
+        "agosto": 155,
+        "septiembre": 129,
+        "noviembre": 72
+      },
+      "denomination_variants": [
+        "Comité de Evaluación Regional"
+      ],
+      "notes": "Programa de participación en espacios de comercialización.",
+      "anomaly_notes": [
+        "24 registros comparten Razón social normalizada dentro del mismo archivo."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/promocion-canales-comercializacion-2025.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/promocion-canales-comercializacion-2025-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/promocion-canales-comercializacion-2025-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/promocion-canales-comercializacion-2025-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/promocion-canales-comercializacion-2025-year-mismatch.csv"
+    },
+    {
+      "slug": "capital-semilla-emprende-2025-archivo-pioneras",
+      "original_file_name": "Capital Semilla Emprende 2025 (aparece en el documento como nombre Capital Pioneras Emprende y además tiene hombres, comparar vs Capital Pioneras Emprende por duplicación o mas irregularidades.csv",
+      "expected_program_from_file": "Capital Semilla Emprende",
+      "portal_section": "Desarrollo Empresarial / Capital Semilla Emprende",
+      "internal_program_values": [
+        "Capital Pioneras Emprende"
+      ],
+      "risk_level": "Crítico",
+      "records": 546,
+      "unique_beneficiary_names": 546,
+      "exact_duplicate_records_involved": 0,
+      "duplicate_name_records_involved": 0,
+      "missing_act_number_records": 0,
+      "unique_act_numbers": 19,
+      "year_mismatch_records": 0,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": true,
+      "capital_semilla_file_with_pioneras_program": true,
+      "nominal_male_first_name_records": 198,
+      "organization_like_records": 1,
+      "no_aplica_name_field_cells": 1638,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "junio": 71,
+        "julio": 372,
+        "agosto": 103
+      },
+      "denomination_variants": [
+        "Comité de evaluación regional"
+      ],
+      "notes": "El nombre del archivo y la sección esperada indican Capital Semilla, pero el campo interno declara Capital Pioneras Emprende.",
+      "anomaly_notes": [
+        "Archivo/portal rotulado como Capital Semilla, pero campo Nombre Programa contiene Capital Pioneras Emprende.",
+        "198 registros con primer nombre nominalmente masculino en programa declarado para mujeres."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/capital-semilla-emprende-2025-archivo-pioneras.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/capital-semilla-emprende-2025-archivo-pioneras-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/capital-semilla-emprende-2025-archivo-pioneras-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/capital-semilla-emprende-2025-archivo-pioneras-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/capital-semilla-emprende-2025-archivo-pioneras-year-mismatch.csv"
+    },
+    {
+      "slug": "capital-abeja-emprende-2025",
+      "original_file_name": "Capital abeja emprende 2025.csv",
+      "expected_program_from_file": "Capital Abeja Emprende",
+      "portal_section": "Desarrollo Empresarial / Capital Abeja Emprende",
+      "internal_program_values": [
+        "Capital Abeja Emprende"
+      ],
+      "risk_level": "Crítico",
+      "records": 933,
+      "unique_beneficiary_names": 899,
+      "exact_duplicate_records_involved": 68,
+      "duplicate_name_records_involved": 68,
+      "missing_act_number_records": 933,
+      "unique_act_numbers": 0,
+      "year_mismatch_records": 0,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": false,
+      "capital_semilla_file_with_pioneras_program": false,
+      "nominal_male_first_name_records": 0,
+      "organization_like_records": 3,
+      "no_aplica_name_field_cells": 2799,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "septiembre": 35,
+        "octubre": 803,
+        "noviembre": 95
+      },
+      "denomination_variants": [
+        "Comité de evaluación regional"
+      ],
+      "notes": "Programa para emprendedoras; el archivo tiene número de acto vacío en todos los registros y duplicación exacta.",
+      "anomaly_notes": [
+        "68 registros integran duplicados exactos.",
+        "68 registros comparten Razón social normalizada dentro del mismo archivo.",
+        "933 registros sin Número de acto."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/capital-abeja-emprende-2025.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/capital-abeja-emprende-2025-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/capital-abeja-emprende-2025-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/capital-abeja-emprende-2025-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/capital-abeja-emprende-2025-year-mismatch.csv"
+    },
+    {
+      "slug": "mejora-negocios-2025",
+      "original_file_name": "Mejora Negocios 2025.csv",
+      "expected_program_from_file": "Mejora Negocios",
+      "portal_section": "Desarrollo Empresarial / Mejora Negocios",
+      "internal_program_values": [
+        "Mejora Negocios"
+      ],
+      "risk_level": "Medio",
+      "records": 100,
+      "unique_beneficiary_names": 99,
+      "exact_duplicate_records_involved": 2,
+      "duplicate_name_records_involved": 2,
+      "missing_act_number_records": 0,
+      "unique_act_numbers": 1,
+      "year_mismatch_records": 0,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": false,
+      "capital_semilla_file_with_pioneras_program": false,
+      "nominal_male_first_name_records": 1,
+      "organization_like_records": 89,
+      "no_aplica_name_field_cells": 300,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "octubre": 100
+      },
+      "denomination_variants": [
+        "Comité de evaluación regional"
+      ],
+      "notes": "Programa de asesorías técnicas; se detecta una fila duplicada exacta.",
+      "anomaly_notes": [
+        "2 registros integran duplicados exactos.",
+        "2 registros comparten Razón social normalizada dentro del mismo archivo."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/mejora-negocios-2025.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/mejora-negocios-2025-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/mejora-negocios-2025-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/mejora-negocios-2025-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/mejora-negocios-2025-year-mismatch.csv"
+    },
+    {
+      "slug": "crece-sostenible-2025",
+      "original_file_name": "Crece Sostenible 2025.csv",
+      "expected_program_from_file": "Crece Sostenible",
+      "portal_section": "Desarrollo Empresarial / Crece Sostenible",
+      "internal_program_values": [
+        "Crece Sostenible"
+      ],
+      "risk_level": "Medio",
+      "records": 380,
+      "unique_beneficiary_names": 380,
+      "exact_duplicate_records_involved": 0,
+      "duplicate_name_records_involved": 0,
+      "missing_act_number_records": 0,
+      "unique_act_numbers": 16,
+      "year_mismatch_records": 0,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": false,
+      "capital_semilla_file_with_pioneras_program": false,
+      "nominal_male_first_name_records": 41,
+      "organization_like_records": 269,
+      "no_aplica_name_field_cells": 1140,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "octubre": 310,
+        "noviembre": 70
+      },
+      "denomination_variants": [
+        "Comité de evaluación regional"
+      ],
+      "notes": "Fondo para crecimiento con prácticas sostenibles.",
+      "anomaly_notes": [
+        "Sin duplicados exactos ni campos de acto vacíos; mantiene falla estructural por ausencia de columnas críticas."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/crece-sostenible-2025.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/crece-sostenible-2025-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/crece-sostenible-2025-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/crece-sostenible-2025-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/crece-sostenible-2025-year-mismatch.csv"
+    },
+    {
+      "slug": "capital-pioneras-emprende-2025",
+      "original_file_name": "Capital Pioneras Emprende 2025 (comparar vs Capital Semilla Emprende 2025).csv",
+      "expected_program_from_file": "Capital Pioneras Emprende",
+      "portal_section": "Desarrollo Empresarial / Capital Pioneras Emprende",
+      "internal_program_values": [
+        "Capital Pioneras Emprende"
+      ],
+      "risk_level": "Alto",
+      "records": 314,
+      "unique_beneficiary_names": 314,
+      "exact_duplicate_records_involved": 0,
+      "duplicate_name_records_involved": 0,
+      "missing_act_number_records": 0,
+      "unique_act_numbers": 16,
+      "year_mismatch_records": 5,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": false,
+      "capital_semilla_file_with_pioneras_program": false,
+      "nominal_male_first_name_records": 0,
+      "organization_like_records": 0,
+      "no_aplica_name_field_cells": 942,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "septiembre": 157,
+        "agosto": 77,
+        "noviembre": 1,
+        "octubre": 58,
+        "enero": 5,
+        "diciembre": 16
+      },
+      "denomination_variants": [
+        "Comité de evaluación regional"
+      ],
+      "notes": "Archivo separado de Pioneras; no comparte nombres con el archivo rotulado como Capital Semilla y contiene fechas 2026 dentro de Año 2025.",
+      "anomaly_notes": [
+        "5 registros con Año distinto al año de Fecha otorgamiento."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/capital-pioneras-emprende-2025.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/capital-pioneras-emprende-2025-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/capital-pioneras-emprende-2025-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/capital-pioneras-emprende-2025-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/capital-pioneras-emprende-2025-year-mismatch.csv"
+    },
+    {
+      "slug": "pymes-globales-2025",
+      "original_file_name": "Pymes Globales 2025.csv",
+      "expected_program_from_file": "Pymes Globales",
+      "portal_section": "Desarrollo Empresarial / Pymes Globales",
+      "internal_program_values": [
+        "Pymes Globales"
+      ],
+      "risk_level": "Medio",
+      "records": 25,
+      "unique_beneficiary_names": 25,
+      "exact_duplicate_records_involved": 0,
+      "duplicate_name_records_involved": 0,
+      "missing_act_number_records": 0,
+      "unique_act_numbers": 1,
+      "year_mismatch_records": 0,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": false,
+      "capital_semilla_file_with_pioneras_program": false,
+      "nominal_male_first_name_records": 2,
+      "organization_like_records": 20,
+      "no_aplica_name_field_cells": 75,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "octubre": 25
+      },
+      "denomination_variants": [
+        "Comité de evaluación regional"
+      ],
+      "notes": "Programa con volumen bajo de registros y uso de un único número de acto.",
+      "anomaly_notes": [
+        "Sin duplicados exactos ni campos de acto vacíos; mantiene falla estructural por ausencia de columnas críticas."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/pymes-globales-2025.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/pymes-globales-2025-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/pymes-globales-2025-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/pymes-globales-2025-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/pymes-globales-2025-year-mismatch.csv"
+    },
+    {
+      "slug": "negocios-digitales-2025",
+      "original_file_name": "Negocios Digitales 2025.csv",
+      "expected_program_from_file": "Negocios Digitales",
+      "portal_section": "Desarrollo Empresarial / Negocios Digitales",
+      "internal_program_values": [
+        "Negocios Digitales"
+      ],
+      "risk_level": "Medio",
+      "records": 78,
+      "unique_beneficiary_names": 78,
+      "exact_duplicate_records_involved": 0,
+      "duplicate_name_records_involved": 0,
+      "missing_act_number_records": 0,
+      "unique_act_numbers": 1,
+      "year_mismatch_records": 0,
+      "month_mismatch_records": 0,
+      "date_parse_failures": 0,
+      "program_name_mismatch": false,
+      "capital_semilla_file_with_pioneras_program": false,
+      "nominal_male_first_name_records": 4,
+      "organization_like_records": 65,
+      "no_aplica_name_field_cells": 234,
+      "no_aplica_name_field_rate": 1.0,
+      "months": {
+        "octubre": 78
+      },
+      "denomination_variants": [
+        "Comité de evaluación regional"
+      ],
+      "notes": "Programa con volumen bajo de registros y uso de un único número de acto.",
+      "anomaly_notes": [
+        "Sin duplicados exactos ni campos de acto vacíos; mantiene falla estructural por ausencia de columnas críticas."
+      ],
+      "download_original_csv": "/data/sercotec2025/originals/negocios-digitales-2025.csv",
+      "download_duplicate_rows_csv": "/data/sercotec2025/duplicates/negocios-digitales-2025-duplicate-rows.csv",
+      "download_duplicate_names_csv": "/data/sercotec2025/duplicates/negocios-digitales-2025-duplicate-names.csv",
+      "download_nominal_male_flags_csv": "/data/sercotec2025/flags/negocios-digitales-2025-nominal-male-flags.csv",
+      "download_year_mismatch_csv": "/data/sercotec2025/flags/negocios-digitales-2025-year-mismatch.csv"
+    }
+  ],
+  "semilla_vs_pioneras": {
+    "semilla_file_rows": 546,
+    "pioneras_file_rows": 314,
+    "overlap_normalized_names": 0,
+    "semilla_file_names_not_in_pioneras_file": 546,
+    "pioneras_file_names_not_in_semilla_file": 314,
+    "semilla_file_internal_programs": [
+      "Capital Pioneras Emprende"
+    ],
+    "pioneras_file_internal_programs": [
+      "Capital Pioneras Emprende"
+    ]
+  },
+  "downloads": {
+    "summary_json": "/data/sercotec2025/analysis/summary.json",
+    "program_summary_csv": "/data/sercotec2025/analysis/program-summary.csv",
+    "cross_program_repetition_csv": "/data/sercotec2025/analysis/cross-program-repeated-beneficiaries.csv",
+    "master_report_docx": "/reports/sercotec2025/informe-auditoria-sercotec-2025.docx",
+    "master_report_pdf": "/reports/sercotec2025/informe-auditoria-sercotec-2025.pdf"
+  }
+}

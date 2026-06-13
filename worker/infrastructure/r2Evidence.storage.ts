@@ -44,4 +44,8 @@ export class R2EvidenceStorage implements EvidenceStorage {
       fileName
     };
   }
+
+  async delete(key: string): Promise<void> {
+    await this.bucket.delete(key);
+  }
 }

@@ -1,0 +1,28 @@
+{
+  "pioneras": {
+    "program": "Capital Pioneras Emprende 2025",
+    "total_records": 546,
+    "unique_names": 546,
+    "duplicate_rows": 0,
+    "duplicate_names": 0,
+    "male_suspect_records": 162,
+    "month_counts": {
+      "julio": 372,
+      "agosto": 103,
+      "junio": 71
+    }
+  },
+  "abeja": {
+    "program": "Capital Abeja Emprende 2025",
+    "total_records": 933,
+    "unique_names": 899,
+    "duplicate_rows": 34,
+    "duplicate_names": 34,
+    "male_suspect_records": 10,
+    "month_counts": {
+      "octubre": 803,
+      "noviembre": 95,
+      "septiembre": 35
+    }
+  }
+}

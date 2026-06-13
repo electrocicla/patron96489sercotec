@@ -32,7 +32,7 @@ export function Button({ children, tone = "primary", className = "", ...props }:
 
 export function ButtonLink({ children, tone = "primary", className = "", href, ...props }: ButtonLinkProps) {
   return (
-    <Link className={`${baseClasses} ${toneClasses[tone]} ${className}`} href={href} {...props}>
+    <Link className={`${baseClasses} ${toneClasses[tone]} ${className}`} href={href} prefetch={false} {...props}>
       {children}
     </Link>
   );

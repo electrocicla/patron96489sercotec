@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "digitaliza-tu-almacen-2025",
+    "originalFileName": "Digitaliza tu almacén 2025.csv",
+    "storedCsv": "/data/sercotec2025/originals/digitaliza-tu-almacen-2025.csv",
+    "expectedProgram": "Digitaliza Tu Almacén",
+    "internalProgramValues": [
+      "Digitaliza Tu Almacén"
+    ]
+  },
+  {
+    "slug": "crece-fondo-desarrollo-negocios-2025",
+    "originalFileName": "Crece; Fondo de desarrollo de negocios.csv",
+    "storedCsv": "/data/sercotec2025/originals/crece-fondo-desarrollo-negocios-2025.csv",
+    "expectedProgram": "Crece",
+    "internalProgramValues": [
+      "Crece"
+    ]
+  },
+  {
+    "slug": "ruta-digital-2025",
+    "originalFileName": "Ruta Digital 2025.csv",
+    "storedCsv": "/data/sercotec2025/originals/ruta-digital-2025.csv",
+    "expectedProgram": "Formación Empresarial Ruta Digital",
+    "internalProgramValues": [
+      "Formación Empresarial Ruta Digital"
+    ]
+  },
+  {
+    "slug": "promocion-canales-comercializacion-2025",
+    "originalFileName": "Promoción y canales de comercialización.csv",
+    "storedCsv": "/data/sercotec2025/originals/promocion-canales-comercializacion-2025.csv",
+    "expectedProgram": "Promoción y Canales de Comercialización",
+    "internalProgramValues": [
+      "Promoción y Canales de Comercialización"
+    ]
+  },
+  {
+    "slug": "capital-semilla-emprende-2025-archivo-pioneras",
+    "originalFileName": "Capital Semilla Emprende 2025 (aparece en el documento como nombre Capital Pioneras Emprende y además tiene hombres, comparar vs Capital Pioneras Emprende por duplicación o mas irregularidades.csv",
+    "storedCsv": "/data/sercotec2025/originals/capital-semilla-emprende-2025-archivo-pioneras.csv",
+    "expectedProgram": "Capital Semilla Emprende",
+    "internalProgramValues": [
+      "Capital Pioneras Emprende"
+    ]
+  },
+  {
+    "slug": "capital-abeja-emprende-2025",
+    "originalFileName": "Capital abeja emprende 2025.csv",
+    "storedCsv": "/data/sercotec2025/originals/capital-abeja-emprende-2025.csv",
+    "expectedProgram": "Capital Abeja Emprende",
+    "internalProgramValues": [
+      "Capital Abeja Emprende"
+    ]
+  },
+  {
+    "slug": "mejora-negocios-2025",
+    "originalFileName": "Mejora Negocios 2025.csv",
+    "storedCsv": "/data/sercotec2025/originals/mejora-negocios-2025.csv",
+    "expectedProgram": "Mejora Negocios",
+    "internalProgramValues": [
+      "Mejora Negocios"
+    ]
+  },
+  {
+    "slug": "crece-sostenible-2025",
+    "originalFileName": "Crece Sostenible 2025.csv",
+    "storedCsv": "/data/sercotec2025/originals/crece-sostenible-2025.csv",
+    "expectedProgram": "Crece Sostenible",
+    "internalProgramValues": [
+      "Crece Sostenible"
+    ]
+  },
+  {
+    "slug": "capital-pioneras-emprende-2025",
+    "originalFileName": "Capital Pioneras Emprende 2025 (comparar vs Capital Semilla Emprende 2025).csv",
+    "storedCsv": "/data/sercotec2025/originals/capital-pioneras-emprende-2025.csv",
+    "expectedProgram": "Capital Pioneras Emprende",
+    "internalProgramValues": [
+      "Capital Pioneras Emprende"
+    ]
+  },
+  {
+    "slug": "pymes-globales-2025",
+    "originalFileName": "Pymes Globales 2025.csv",
+    "storedCsv": "/data/sercotec2025/originals/pymes-globales-2025.csv",
+    "expectedProgram": "Pymes Globales",
+    "internalProgramValues": [
+      "Pymes Globales"
+    ]
+  },
+  {
+    "slug": "negocios-digitales-2025",
+    "originalFileName": "Negocios Digitales 2025.csv",
+    "storedCsv": "/data/sercotec2025/originals/negocios-digitales-2025.csv",
+    "expectedProgram": "Negocios Digitales",
+    "internalProgramValues": [
+      "Negocios Digitales"
+    ]
+  }
+]

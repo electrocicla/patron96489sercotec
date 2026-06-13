@@ -7,7 +7,9 @@ import { CloudflareTurnstileClient } from "@/worker/infrastructure/turnstile.cli
 import { CsvExportService } from "./csvExport.service";
 import { FileAccessService } from "./fileAccess.service";
 import { ModerationService } from "./moderation.service";
+import { PatternAnalysisService } from "./patternAnalysis.service";
 import { ReportSubmissionService } from "./reportSubmission.service";
+import { RequestDraftService } from "./requestDraft.service";
 import { StatsService } from "./stats.service";
 
 const createInfrastructure = (env: EnvBindings) => {
@@ -37,7 +39,18 @@ export const createReportSubmissionService = (env: EnvBindings) => {
 
 export const createStatsService = (env: EnvBindings) => {
   const { reportRepository } = createInfrastructure(env);
-  return new StatsService(reportRepository);
+  return new StatsService(reportRepository, new PatternAnalysisService(reportRepository));
+};
+
+export const createPatternAnalysisService = (env: EnvBindings) => {
+  const { reportRepository } = createInfrastructure(env);
+  return new PatternAnalysisService(reportRepository);
+};
+
+export const createRequestDraftService = (env: EnvBindings) => {
+  const { reportRepository } = createInfrastructure(env);
+  const patternAnalysisService = new PatternAnalysisService(reportRepository);
+  return new RequestDraftService(reportRepository, patternAnalysisService);
 };
 
 export const createModerationService = (env: EnvBindings) => {

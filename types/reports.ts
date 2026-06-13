@@ -23,6 +23,10 @@ export const REGION_OPTIONS = [
   "Magallanes y de la Antartica Chilena"
 ] as const;
 
+export const REGION_APPLICATION_TOTALS: Partial<Record<(typeof REGION_OPTIONS)[number], number>> = {
+  Valparaiso: 2175
+};
+
 export const STATUS_OPTIONS = [
   "Postulacion no admisible",
   "No preseleccionada",
@@ -102,6 +106,8 @@ export interface AdminReportDetailReport {
   moderationStatus: ModerationStatus;
   moderatorNotes: string | null;
   publicNotes: string | null;
+  ipHash: string | null;
+  userAgentHash: string | null;
 }
 
 export interface AdminEvidenceFile {

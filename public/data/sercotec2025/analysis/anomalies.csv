@@ -1,0 +1,17 @@
+﻿slug,program,risk,anomaly,records,original_file_name
+digitaliza-tu-almacen-2025,Digitaliza Tu Almacén,Medio,2 registros integran duplicados exactos.,410,Digitaliza tu almacén 2025.csv
+digitaliza-tu-almacen-2025,Digitaliza Tu Almacén,Medio,4 registros comparten Razón social normalizada dentro del mismo archivo.,410,Digitaliza tu almacén 2025.csv
+crece-fondo-desarrollo-negocios-2025,Crece,Medio,Sin duplicados exactos ni campos de acto vacíos; mantiene falla estructural por ausencia de columnas críticas.,1006,Crece; Fondo de desarrollo de negocios.csv
+ruta-digital-2025,Formación Empresarial Ruta Digital,Alto,150 registros comparten Razón social normalizada dentro del mismo archivo.,690,Ruta Digital 2025.csv
+promocion-canales-comercializacion-2025,Promoción y Canales de Comercialización,Medio,24 registros comparten Razón social normalizada dentro del mismo archivo.,626,Promoción y canales de comercialización.csv
+capital-semilla-emprende-2025-archivo-pioneras,Capital Semilla Emprende,Crítico,"Archivo/portal rotulado como Capital Semilla, pero campo Nombre Programa contiene Capital Pioneras Emprende.",546,"Capital Semilla Emprende 2025 (aparece en el documento como nombre Capital Pioneras Emprende y además tiene hombres, comparar vs Capital Pioneras Emprende por duplicación o mas irregularidades.csv"
+capital-semilla-emprende-2025-archivo-pioneras,Capital Semilla Emprende,Crítico,198 registros con primer nombre nominalmente masculino en programa declarado para mujeres.,546,"Capital Semilla Emprende 2025 (aparece en el documento como nombre Capital Pioneras Emprende y además tiene hombres, comparar vs Capital Pioneras Emprende por duplicación o mas irregularidades.csv"
+capital-abeja-emprende-2025,Capital Abeja Emprende,Crítico,68 registros integran duplicados exactos.,933,Capital abeja emprende 2025.csv
+capital-abeja-emprende-2025,Capital Abeja Emprende,Crítico,68 registros comparten Razón social normalizada dentro del mismo archivo.,933,Capital abeja emprende 2025.csv
+capital-abeja-emprende-2025,Capital Abeja Emprende,Crítico,933 registros sin Número de acto.,933,Capital abeja emprende 2025.csv
+mejora-negocios-2025,Mejora Negocios,Medio,2 registros integran duplicados exactos.,100,Mejora Negocios 2025.csv
+mejora-negocios-2025,Mejora Negocios,Medio,2 registros comparten Razón social normalizada dentro del mismo archivo.,100,Mejora Negocios 2025.csv
+crece-sostenible-2025,Crece Sostenible,Medio,Sin duplicados exactos ni campos de acto vacíos; mantiene falla estructural por ausencia de columnas críticas.,380,Crece Sostenible 2025.csv
+capital-pioneras-emprende-2025,Capital Pioneras Emprende,Alto,5 registros con Año distinto al año de Fecha otorgamiento.,314,Capital Pioneras Emprende 2025 (comparar vs Capital Semilla Emprende 2025).csv
+pymes-globales-2025,Pymes Globales,Medio,Sin duplicados exactos ni campos de acto vacíos; mantiene falla estructural por ausencia de columnas críticas.,25,Pymes Globales 2025.csv
+negocios-digitales-2025,Negocios Digitales,Medio,Sin duplicados exactos ni campos de acto vacíos; mantiene falla estructural por ausencia de columnas críticas.,78,Negocios Digitales 2025.csv

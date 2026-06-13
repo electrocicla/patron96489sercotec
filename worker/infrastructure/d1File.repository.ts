@@ -60,6 +60,13 @@ export class D1FileRepository implements FileRepository {
       .run();
   }
 
+  async deleteByReportId(reportId: string): Promise<void> {
+    await this.db
+      .prepare("DELETE FROM report_files WHERE report_id = ?")
+      .bind(reportId)
+      .run();
+  }
+
   async listByReportId(reportId: string): Promise<ReportFileRecord[]> {
     const result = await this.db
       .prepare("SELECT * FROM report_files WHERE report_id = ? ORDER BY created_at DESC")

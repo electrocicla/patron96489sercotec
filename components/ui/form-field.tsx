@@ -33,7 +33,7 @@ function FieldShell({ id, label, hint, error, children }: FieldShellProps) {
 }
 
 const controlClasses =
-  "w-full rounded-md border border-civic-line bg-white px-3 py-2.5 text-sm text-civic-ink outline-none transition placeholder:text-civic-muted focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/20";
+  "w-full min-w-0 max-w-full rounded-md border border-civic-line bg-white px-3 py-2.5 text-sm text-civic-ink outline-none transition placeholder:text-civic-muted focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/20";
 
 type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
@@ -47,7 +47,7 @@ type SelectFieldProps = SelectHTMLAttributes<HTMLSelectElement> & {
   hint?: string;
   error?: string;
   id: string;
-  options: readonly string[];
+  options: readonly (string | { label: string; value: string })[];
   placeholder?: string;
 };
 
@@ -90,11 +90,16 @@ export function SelectField({
         {...props}
       >
         <option value="">{placeholder}</option>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
+        {options.map((option) => {
+          const value = typeof option === "string" ? option : option.value;
+          const optionLabel = typeof option === "string" ? option : option.label;
+
+          return (
+            <option key={value} value={value}>
+              {optionLabel}
+            </option>
+          );
+        })}
       </select>
     </FieldShell>
   );

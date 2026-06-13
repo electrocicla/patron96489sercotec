@@ -1,0 +1,17 @@
+{
+  "updated_at": "2026-06-12",
+  "scope": "Fondos publicos concursables Sercotec 2025 con monto directo publicado o tope monetario conocido por programa.",
+  "strict_direct_amount_programs": 9,
+  "strict_direct_amount_rows": 4457,
+  "duplicate_groups_direct_amount": 75,
+  "duplicate_groups_in_two_programs": 72,
+  "duplicate_groups_in_three_or_more_programs": 3,
+  "duplicate_detail_rows_direct_amount": 161,
+  "known_max_exposure_clp_sum_across_duplicate_groups": 578200000,
+  "highest_known_max_exposure_clp": 11700000,
+  "excluded_no_direct_amount_programs": [
+    "Promoción y Canales",
+    "Pymes Globales"
+  ],
+  "excluded_reason": "Se excluyen del ranking de multiples fondos directos los programas sin monto individual directo publicado en la fuente oficial o en la clasificacion del analisis."
+}

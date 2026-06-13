@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { AdminPanel } from "@/components/admin/admin-panel";
 
 export const metadata: Metadata = {
-  title: "Admin"
+  title: "Administracion",
+  description: "Panel privado para moderar reportes, revisar patrones y preparar solicitudes formales."
 };
 
 export default function AdminPage() {

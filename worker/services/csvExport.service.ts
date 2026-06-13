@@ -9,13 +9,7 @@ export class CsvExportService {
   constructor(private readonly reportRepository: ReportRepository) {}
 
   async exportAdminCsv(): Promise<string> {
-    const reports = await this.reportRepository.listAdmin({
-      moderationStatus: null,
-      score: null,
-      program: null,
-      region: null,
-      pattern: null
-    });
+    const reports = await this.reportRepository.listPatternExportRows();
 
     const header = [
       "id",
@@ -24,12 +18,19 @@ export class CsvExportService {
       "region",
       "commune",
       "score",
+      "score_occurrence_count",
+      "is_repeated_score",
       "status",
       "evidence_type",
       "moderation_status",
+      "moderation_bucket",
       "pattern_score_96489",
       "pattern_same_message",
       "pattern_capital_abeja_pending_with_score",
+      "phrase_no_preseleccionada",
+      "phrase_evaluacion_admisibilidad",
+      "phrase_postulacion_enviada_recibida",
+      "phrase_corte_98_51",
       "file_count"
     ];
 
@@ -41,12 +42,19 @@ export class CsvExportService {
         report.region,
         report.commune,
         report.normalizedScore,
+        report.scoreOccurrenceCount,
+        report.isRepeatedScore,
         report.statusText,
         report.evidenceType,
         report.moderationStatus,
+        report.moderationBucket,
         report.patternScore96489,
         report.patternSameMessage,
         report.patternCapitalAbejaPendingWithScore,
+        report.phraseNoPreseleccionada,
+        report.phraseEvaluacionAdmisibilidad,
+        report.phrasePostulacionEnviadaRecibida,
+        report.phraseCorte9851,
         report.fileCount
       ]
         .map(csvEscape)

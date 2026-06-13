@@ -1,4 +1,4 @@
-const SCORE_PATTERN = /(\d{1,3})\s*([,.])\s*(\d{1,3})/;
+const SCORE_PATTERN = /(?:^|[^\d])(-?\d{1,3})(?:\s*([,.])\s*(\d{1,4}))?(?!\d)/;
 
 export const normalizeScore = (input: string | null | undefined) => {
   if (!input) {
@@ -11,8 +11,8 @@ export const normalizeScore = (input: string | null | undefined) => {
   }
 
   const integerPart = match[1];
-  const decimalPart = match[3];
-  return `${integerPart}.${decimalPart}`;
+  const decimalPart = match[3]?.replace(/0+$/, "") ?? "";
+  return decimalPart.length > 0 ? `${integerPart}.${decimalPart}` : integerPart;
 };
 
 export const isKnownRepeatedScore = (normalizedScore: string | null) =>

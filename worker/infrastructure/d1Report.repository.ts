@@ -1,4 +1,12 @@
 import type { AdminReportRow, ModerationStatus, PublicReportRow } from "@/types/reports";
+import type {
+  KnownPhrasePattern,
+  KnownPhrasePatternKey,
+  PatternBreakdownItem,
+  PatternExportRow,
+  RepeatedScorePattern,
+  RepeatedStatusPattern
+} from "@/types/patterns";
 import type { CountByLabel } from "@/types/stats";
 import type { ReportCreateInput, ReportRecord } from "@/worker/domain/report.entity";
 import type {
@@ -59,8 +67,109 @@ interface CountDbRow {
   count: number;
 }
 
+interface PatternAggregateDbRow {
+  pattern_key: string;
+  label: string | null;
+  count: number;
+  verified_count: number;
+  pending_count: number;
+}
+
+interface PatternExportDbRow {
+  id: string;
+  created_at: string;
+  program: string;
+  region: string;
+  commune: string | null;
+  normalized_score: string;
+  score_occurrence_count: number;
+  status_text: string | null;
+  has_email_screenshot: number;
+  has_web_screenshot: number;
+  has_other_files: number;
+  moderation_status: ModerationStatus;
+  pattern_score_96489: number;
+  pattern_same_message: number;
+  pattern_capital_abeja_pending_with_score: number;
+  phrase_no_preseleccionada: number;
+  phrase_evaluacion_admisibilidad: number;
+  phrase_postulacion_enviada_recibida: number;
+  phrase_corte_9851: number;
+  file_count: number;
+}
+
+interface RecentCountDbRow {
+  count: number;
+}
+
+type PatternDimension = "program" | "region" | "status_text";
+
+const KNOWN_PHRASE_LABELS: Record<KnownPhrasePatternKey, string> = {
+  no_preseleccionada: "No logro ser preseleccionada / no preseleccionada",
+  evaluacion_admisibilidad: "En evaluacion de admisibilidad",
+  postulacion_enviada_recibida: "Postulacion enviada y recibida",
+  corte_98_51: "Puntaje de corte 98.51"
+};
+
+const AGGREGATE_TEXT_SQL = `lower(
+  coalesce(status_text, '') || ' ' ||
+  coalesce(email_message, '') || ' ' ||
+  coalesce(web_message, '') || ' ' ||
+  coalesce(additional_comments, '')
+)`;
+
+const KNOWN_SIGNALS_SQL = `
+  SELECT 'no_preseleccionada' AS pattern_key, program, region, status_text, moderation_status
+  FROM reports
+  WHERE ${AGGREGATE_TEXT_SQL} LIKE '%no logro ser preseleccionada%'
+     OR lower(coalesce(status_text, '')) = 'no preseleccionada'
+  UNION ALL
+  SELECT 'evaluacion_admisibilidad', program, region, status_text, moderation_status
+  FROM reports
+  WHERE ${AGGREGATE_TEXT_SQL} LIKE '%en evaluacion de admisibilidad%'
+     OR ${AGGREGATE_TEXT_SQL} LIKE '%en evaluación de admisibilidad%'
+  UNION ALL
+  SELECT 'postulacion_enviada_recibida', program, region, status_text, moderation_status
+  FROM reports
+  WHERE ${AGGREGATE_TEXT_SQL} LIKE '%postulacion enviada y recibida%'
+     OR ${AGGREGATE_TEXT_SQL} LIKE '%postulación enviada y recibida%'
+  UNION ALL
+  SELECT 'corte_98_51', program, region, status_text, moderation_status
+  FROM reports
+  WHERE normalized_cutoff_score = '98.51'
+`;
+
 const toInt = (value: boolean) => (value ? 1 : 0);
 const toBool = (value: number) => value === 1;
+
+const toBreakdownItem = (row: PatternAggregateDbRow): PatternBreakdownItem => ({
+  label: row.label ?? "Sin dato",
+  count: row.count,
+  verifiedCount: row.verified_count,
+  pendingCount: row.pending_count
+});
+
+const groupBreakdowns = (rows: PatternAggregateDbRow[]) => {
+  const grouped = new Map<string, PatternBreakdownItem[]>();
+
+  for (const row of rows) {
+    const items = grouped.get(row.pattern_key) ?? [];
+    items.push(toBreakdownItem(row));
+    grouped.set(row.pattern_key, items);
+  }
+
+  return grouped;
+};
+
+const sumBreakdown = (items: PatternBreakdownItem[]) =>
+  items.reduce(
+    (total, item) => ({
+      count: total.count + item.count,
+      verifiedCount: total.verifiedCount + item.verifiedCount,
+      pendingCount: total.pendingCount + item.pendingCount
+    }),
+    { count: 0, verifiedCount: 0, pendingCount: 0 }
+  );
 
 const mapReport = (row: ReportDbRow): ReportRecord => ({
   id: row.id,
@@ -104,6 +213,26 @@ const evidenceTypeFor = (row: ReportDbRow) => {
   ].filter(Boolean);
 
   return types.length > 0 ? types.join(", ") : "sin_archivo";
+};
+
+const evidenceTypeForExport = (row: PatternExportDbRow) => {
+  const types = [
+    row.has_email_screenshot === 1 ? "captura_email" : null,
+    row.has_web_screenshot === 1 ? "captura_web" : null,
+    row.has_other_files === 1 ? "otro_archivo" : null
+  ].filter((value): value is string => value !== null);
+
+  return types.length > 0 ? types.join(", ") : "sin_archivo";
+};
+
+const moderationBucketFor = (
+  status: ModerationStatus
+): PatternExportRow["moderationBucket"] => {
+  if (status === "verified_pattern" || status === "published") {
+    return "verified";
+  }
+
+  return status === "pending" ? "pending" : "other";
 };
 
 const mapPublicRow = (row: ReportDbRow): PublicReportRow => ({
@@ -180,6 +309,10 @@ export class D1ReportRepository implements ReportRepository {
         report.userAgentHash
       )
       .run();
+  }
+
+  async delete(reportId: string): Promise<void> {
+    await this.db.prepare("DELETE FROM reports WHERE id = ?").bind(reportId).run();
   }
 
   async findById(id: string): Promise<ReportRecord | null> {
@@ -283,6 +416,153 @@ export class D1ReportRepository implements ReportRepository {
     return this.countBy("status_text");
   }
 
+  async getRepeatedScorePatterns(
+    minimumOccurrences: number
+  ): Promise<RepeatedScorePattern[]> {
+    const [programRows, regionRows, statusRows] = await Promise.all([
+      this.getRepeatedBreakdown("normalized_score", "program", minimumOccurrences),
+      this.getRepeatedBreakdown("normalized_score", "region", minimumOccurrences),
+      this.getRepeatedBreakdown("normalized_score", "status_text", minimumOccurrences)
+    ]);
+    const byProgram = groupBreakdowns(programRows);
+    const byRegion = groupBreakdowns(regionRows);
+    const byStatus = groupBreakdowns(statusRows);
+
+    return [...byProgram.entries()].map(([score, programBreakdown]) => ({
+      score,
+      ...sumBreakdown(programBreakdown),
+      byProgram: programBreakdown,
+      byRegion: byRegion.get(score) ?? [],
+      byStatus: byStatus.get(score) ?? []
+    }));
+  }
+
+  async getRepeatedStatusPatterns(
+    minimumOccurrences: number
+  ): Promise<RepeatedStatusPattern[]> {
+    const [programRows, regionRows] = await Promise.all([
+      this.getRepeatedBreakdown("status_text", "program", minimumOccurrences),
+      this.getRepeatedBreakdown("status_text", "region", minimumOccurrences)
+    ]);
+    const byProgram = groupBreakdowns(programRows);
+    const byRegion = groupBreakdowns(regionRows);
+
+    return [...byProgram.entries()].map(([status, programBreakdown]) => ({
+      status,
+      ...sumBreakdown(programBreakdown),
+      byProgram: programBreakdown,
+      byRegion: byRegion.get(status) ?? []
+    }));
+  }
+
+  async getKnownPhrasePatterns(
+    minimumOccurrences: number
+  ): Promise<KnownPhrasePattern[]> {
+    const [programRows, regionRows, statusRows] = await Promise.all([
+      this.getKnownSignalBreakdown("program", minimumOccurrences),
+      this.getKnownSignalBreakdown("region", minimumOccurrences),
+      this.getKnownSignalBreakdown("status_text", minimumOccurrences)
+    ]);
+    const byProgram = groupBreakdowns(programRows);
+    const byRegion = groupBreakdowns(regionRows);
+    const byStatus = groupBreakdowns(statusRows);
+
+    return [...byProgram.entries()].flatMap(([key, programBreakdown]) => {
+      if (!(key in KNOWN_PHRASE_LABELS)) {
+        return [];
+      }
+
+      const typedKey = key as KnownPhrasePatternKey;
+      return [{
+        key: typedKey,
+        label: KNOWN_PHRASE_LABELS[typedKey],
+        ...sumBreakdown(programBreakdown),
+        byProgram: programBreakdown,
+        byRegion: byRegion.get(key) ?? [],
+        byStatus: byStatus.get(key) ?? []
+      }];
+    });
+  }
+
+  async listPatternExportRows(): Promise<PatternExportRow[]> {
+    const result = await this.db
+      .prepare(
+        `WITH score_counts AS (
+          SELECT normalized_score, COUNT(*) AS occurrence_count
+          FROM reports
+          WHERE trim(normalized_score) <> ''
+          GROUP BY normalized_score
+        ), file_counts AS (
+          SELECT report_id, COUNT(*) AS file_count
+          FROM report_files
+          GROUP BY report_id
+        )
+        SELECT
+          r.id, r.created_at, r.program, r.region, r.commune, r.normalized_score,
+          sc.occurrence_count AS score_occurrence_count, r.status_text,
+          r.has_email_screenshot, r.has_web_screenshot, r.has_other_files,
+          r.moderation_status, r.pattern_score_96489, r.pattern_same_message,
+          r.pattern_capital_abeja_pending_with_score,
+          CASE WHEN ${AGGREGATE_TEXT_SQL} LIKE '%no logro ser preseleccionada%'
+                 OR lower(coalesce(r.status_text, '')) = 'no preseleccionada'
+            THEN 1 ELSE 0 END AS phrase_no_preseleccionada,
+          CASE WHEN ${AGGREGATE_TEXT_SQL} LIKE '%en evaluacion de admisibilidad%'
+                 OR ${AGGREGATE_TEXT_SQL} LIKE '%en evaluación de admisibilidad%'
+            THEN 1 ELSE 0 END AS phrase_evaluacion_admisibilidad,
+          CASE WHEN ${AGGREGATE_TEXT_SQL} LIKE '%postulacion enviada y recibida%'
+                 OR ${AGGREGATE_TEXT_SQL} LIKE '%postulación enviada y recibida%'
+            THEN 1 ELSE 0 END AS phrase_postulacion_enviada_recibida,
+          CASE WHEN r.normalized_cutoff_score = '98.51'
+            THEN 1 ELSE 0 END AS phrase_corte_9851,
+          coalesce(fc.file_count, 0) AS file_count
+        FROM reports r
+        JOIN score_counts sc ON sc.normalized_score = r.normalized_score
+        LEFT JOIN file_counts fc ON fc.report_id = r.id
+        ORDER BY r.created_at DESC`
+      )
+      .all<PatternExportDbRow>();
+
+    return result.results.map((row) => ({
+      id: row.id,
+      createdAt: row.created_at,
+      program: row.program,
+      region: row.region,
+      commune: row.commune,
+      normalizedScore: row.normalized_score,
+      scoreOccurrenceCount: row.score_occurrence_count,
+      isRepeatedScore: row.score_occurrence_count >= 2,
+      statusText: row.status_text,
+      evidenceType: evidenceTypeForExport(row),
+      moderationStatus: row.moderation_status,
+      moderationBucket: moderationBucketFor(row.moderation_status),
+      patternScore96489: toBool(row.pattern_score_96489),
+      patternSameMessage: toBool(row.pattern_same_message),
+      patternCapitalAbejaPendingWithScore: toBool(
+        row.pattern_capital_abeja_pending_with_score
+      ),
+      phraseNoPreseleccionada: toBool(row.phrase_no_preseleccionada),
+      phraseEvaluacionAdmisibilidad: toBool(row.phrase_evaluacion_admisibilidad),
+      phrasePostulacionEnviadaRecibida: toBool(
+        row.phrase_postulacion_enviada_recibida
+      ),
+      phraseCorte9851: toBool(row.phrase_corte_9851),
+      fileCount: row.file_count
+    }));
+  }
+
+  async countRecentByIpHash(ipHash: string, sinceIso: string): Promise<number> {
+    const row = await this.db
+      .prepare(
+        `SELECT COUNT(*) AS count
+         FROM reports
+         WHERE ip_hash = ? AND created_at >= ?`
+      )
+      .bind(ipHash, sinceIso)
+      .first<RecentCountDbRow>();
+
+    return row?.count ?? 0;
+  }
+
   async updateModeration(
     reportId: string,
     status: ModerationStatus,
@@ -311,6 +591,67 @@ export class D1ReportRepository implements ReportRepository {
       default:
         return null;
     }
+  }
+
+  private async getRepeatedBreakdown(
+    patternColumn: "normalized_score" | "status_text",
+    dimension: PatternDimension,
+    minimumOccurrences: number
+  ): Promise<PatternAggregateDbRow[]> {
+    const result = await this.db
+      .prepare(
+        `WITH repeated_patterns AS (
+          SELECT ${patternColumn} AS pattern_key
+          FROM reports
+          WHERE ${patternColumn} IS NOT NULL AND trim(${patternColumn}) <> ''
+          GROUP BY ${patternColumn}
+          HAVING COUNT(*) >= ?
+        )
+        SELECT
+          r.${patternColumn} AS pattern_key,
+          coalesce(r.${dimension}, 'Sin dato') AS label,
+          COUNT(*) AS count,
+          SUM(CASE WHEN r.moderation_status IN ('verified_pattern', 'published') THEN 1 ELSE 0 END) AS verified_count,
+          SUM(CASE WHEN r.moderation_status = 'pending' THEN 1 ELSE 0 END) AS pending_count
+        FROM reports r
+        JOIN repeated_patterns p ON p.pattern_key = r.${patternColumn}
+        GROUP BY r.${patternColumn}, r.${dimension}
+        ORDER BY r.${patternColumn} ASC, count DESC, label ASC`
+      )
+      .bind(minimumOccurrences)
+      .all<PatternAggregateDbRow>();
+
+    return result.results;
+  }
+
+  private async getKnownSignalBreakdown(
+    dimension: PatternDimension,
+    minimumOccurrences: number
+  ): Promise<PatternAggregateDbRow[]> {
+    const result = await this.db
+      .prepare(
+        `WITH signals AS (${KNOWN_SIGNALS_SQL}),
+        repeated_signals AS (
+          SELECT pattern_key
+          FROM signals
+          GROUP BY pattern_key
+          HAVING COUNT(*) >= ?
+        )
+        SELECT
+          s.pattern_key,
+          coalesce(s.${dimension}, 'Sin dato') AS label,
+          COUNT(*) AS count,
+          SUM(CASE WHEN s.moderation_status IN ('verified_pattern', 'published') THEN 1 ELSE 0 END) AS verified_count,
+          SUM(CASE WHEN s.moderation_status = 'pending' THEN 1 ELSE 0 END) AS pending_count
+        FROM signals s
+        JOIN repeated_signals repeated ON repeated.pattern_key = s.pattern_key
+        GROUP BY s.pattern_key, s.${dimension}
+        ORDER BY s.pattern_key ASC, count DESC, label ASC`
+      )
+      .bind(minimumOccurrences)
+      .all<PatternAggregateDbRow>();
+
+    return result.results;
   }
 
   private async countBy(column: "program" | "region" | "status_text"): Promise<CountByLabel[]> {

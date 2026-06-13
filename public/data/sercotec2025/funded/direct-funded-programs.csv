@@ -1,0 +1,10 @@
+programa_publicado,archivo_csv,registros,razones_sociales_unicas,programa_interno_csv,tipo_financiamiento,monto_maximo_clp,filas_excedentes_duplicadas_exactas,filas_afectadas_por_duplicacion_exacta
+Digitaliza tu Almacén,Digitaliza tu almacén 2025.csv,410,408,Digitaliza Tu Almacén,subsidio directo,3000000.0,1,2
+Crece,Crece; Fondo de desarrollo de negocios.csv,1006,1006,Crece,subsidio directo,5000000.0,0,0
+Ruta Digital Kit Digital,Ruta Digital 2025.csv,690,615,Formación Empresarial Ruta Digital,subsidio directo,1200000.0,0,0
+Capital Semilla rotulado / Pioneras interno,"Capital Semilla Emprende 2025 (aparece en el documento como nombre Capital Pioneras Emprende y además tiene hombres, comparar vs Capital Pioneras Emprende por duplicación o mas irregularidades.csv",546,546,Capital Pioneras Emprende,subsidio directo,3500000.0,0,0
+Capital Abeja,Capital abeja emprende 2025.csv,933,899,Capital Abeja Emprende,subsidio directo,3500000.0,34,68
+Mejora Negocios,Mejora Negocios 2025.csv,100,99,Mejora Negocios,subsidio/cofinanciamiento de asesoría,1500000.0,1,2
+Crece Sostenible,Crece Sostenible 2025.csv,380,380,Crece Sostenible,subsidio directo,9000000.0,0,0
+Capital Pioneras,Capital Pioneras Emprende 2025 (comparar vs Capital Semilla Emprende 2025).csv,314,314,Capital Pioneras Emprende,subsidio directo,3500000.0,0,0
+Negocios Digitales,Negocios Digitales 2025.csv,78,78,Negocios Digitales,apoyo monetario por componentes,1500000.0,0,0
